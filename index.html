@@ -36,7 +36,7 @@
 					<font size="16"> ¿Por qué es importante? </font>
 				</p>
 				<ul>
-					<li>Necesidad de saber el tiempo de mayor tiempo de retardo de mensaje posible en el sistema</li>
+					<li>Por la necesidad de conocer el mayor tiempo de retardo de un mensaje existente en el sistema</li>
 					<li>Primer estudio temporal realizado por Tindell</li>
 					<li>Aumento de su uso del 30% al 80%</li>
 				</ul>
@@ -72,7 +72,24 @@
 					<li> $R_m$: El tiempo máximo que transcurre desde que se inicia el evento que origina el mensaje hasta que se envía. Se dirá que un mensaje se envía a tiempo real si ($R_m \leq D_m$). </li>
 				</ul>
 				<img src="images/lines.png" alt="lines" style="width:304px;height:228px;">
+			</section>
+			<section data-background-color="#ffffff">
+				<p style="text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;">
+					Análisis de Tindell:
+				</p>
+				<p>
+					El tiempo que tarda en eviarse un paquete será el tiempo que tarda en ponerse en cola dicho mensaje más el tiempo de retardo en la cola $w_n$ más el tiempo de envío $C_m$
+				</p>
+				\[    R_m = J_m + w_m + C_m \]
 
+			</section>
+			<section data-background-color="#ffffff">
+				En el caso de el dispositivo con la mayor prioridad:
+				\[ w_n = B_m = \max_{k \in lp(m)}(C_k) \]
+			</section>
+			<section data-background-color="#ffffff">
+				Por lo tanto la ecuación final de Tindell:
+				\[    w_n = B_m +\sum_{\forall k \in hp(m) } \left \lceil{\frac{w_n + J_k + \tau_{bit}}{T_k}}\right \rceil C_K \]
 			</section>
 		</div>
 	</div>
