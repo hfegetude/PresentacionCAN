@@ -52,8 +52,26 @@
 						<p class="fragment"> 11111-<b>0</b>0000-<b>1</b>1111-<b>0</b>0000... </p>
 			</section>
 			<section data-background-color="#ffffff">
-				Podemos ver que el tiempo de envio de trama será:
-				<p> \[ C_m = (g + 8s_m + 13 +  \Big \lfloor \frac{g + 8s_m -1}{4}  \Big \rfloor)\tau_{bit} \] </p>
+				Podemos ver que el tiempo de envío de trama será:
+				<p> \[ C_m = (g + 8s_m + 13 + \Big \lfloor \frac{g + 8s_m -1}{4} \Big \rfloor)\tau_{bit} \] </p>
+				<p align="left"> Donde: </p>
+				<ul>
+					<li>g será la cantidad de bits de dirección enviados </li>
+					<li> $s_m$ será la cantidad de bits en el campo de datos </li>
+				</ul>
+			</section>
+			<section data-background-color="#ffffff">
+				<font size="16">
+					Parámetros del modelo:
+				</font>
+				<ul>
+					<li> $m$: La prioridad del mensaje </li>
+					<li> $J_m$: El tiempo que se tarda en poner en cola el mensaje. </li>
+					<li> $T_m$: El periodo con el que se envía el mensaje </li>
+					<li> $D_m$: El retardo máximo permitido. </li>
+					<li> $R_m$: El tiempo máximo que transcurre desde que se inicia el evento que origina el mensaje hasta que se envía. Se dirá que un mensaje se envía a tiempo real si ($R_m \leq D_m$). </li>
+				</ul>
+				<img src="images/lines.png" alt="lines" style="width:304px;height:228px;">
 
 			</section>
 		</div>
@@ -69,25 +87,28 @@
 
 			// More info https://github.com/hakimel/reveal.js#dependencies
 			dependencies: [{
-						src: 'plugin/markdown/marked.js'
-					},
-					{
-						src: 'plugin/markdown/markdown.js'
-					},
-					{
-						src: 'plugin/notes/notes.js',
-						async: true
-					},
-					{
-						src: 'plugin/highlight/highlight.js',
-						async: true,
-						callback: function() {
-							hljs.initHighlightingOnLoad();
-						}
-					},
-						{ src: 'plugin/math/math.js', async: true }
+					src: 'plugin/markdown/marked.js'
+				},
+				{
+					src: 'plugin/markdown/markdown.js'
+				},
+				{
+					src: 'plugin/notes/notes.js',
+					async: true
+				},
+				{
+					src: 'plugin/highlight/highlight.js',
+					async: true,
+					callback: function() {
+						hljs.initHighlightingOnLoad();
+					}
+				},
+				{
+					src: 'plugin/math/math.js',
+					async: true
+				}
 
-				]
+			]
 		});
 	</script>
 </body>
