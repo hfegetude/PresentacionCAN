@@ -1,50 +1,95 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+	<title>CAN</title>
 
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/black.css">
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section data-background-image="images/intro_temp.jpg">
+				<p style="text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;">
+					<font size="16"> Introducción al analisis temporal en CAN </font>
+				</p>
+			</section>
+			<section data-background-color="#ffffff">
+				<p style="text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;">
+					<font size="16"> ¿Por qué es importante? </font>
+				</p>
+				<ul>
+					<li>Necesidad de saber el tiempo de mayor tiempo de retardo de mensaje posible en el sistema</li>
+					<li>Primer estudio temporal realizado por Tindell</li>
+					<li>Aumento de su uso del 30% al 80%</li>
+				</ul>
+			</section>
+			<section data-background-color="#ffffff">
+				<p style="text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;">
+					Buscando el peor caso:
+				</p>
+				<p> Analizemos la serie:
+					<p>
+						<p class="fragment"> 11111-0000-1111-0000... </p>
+						<p class="fragment"> Tras el bit stuffing </p>
+						<p class="fragment"> 11111-<b>0</b>0000-<b>1</b>1111-<b>0</b>0000... </p>
+			</section>
+			<section data-background-color="#ffffff">
+				Podemos ver que el tiempo de envio de trama será:
+				<p> \[ C_m = (g + 8s_m + 13 +  \Big \lfloor \frac{g + 8s_m -1}{4}  \Big \rfloor)\tau_{bit} \] </p>
+
+			</section>
 		</div>
+	</div>
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
 
-		<script>
-			// More info https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				history: true,
+	<script>
+		// More info https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			history: true,
 
-				// More info https://github.com/hakimel/reveal.js#dependencies
-				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+			// More info https://github.com/hakimel/reveal.js#dependencies
+			dependencies: [{
+						src: 'plugin/markdown/marked.js'
+					},
+					{
+						src: 'plugin/markdown/markdown.js'
+					},
+					{
+						src: 'plugin/notes/notes.js',
+						async: true
+					},
+					{
+						src: 'plugin/highlight/highlight.js',
+						async: true,
+						callback: function() {
+							hljs.initHighlightingOnLoad();
+						}
+					},
+						{ src: 'plugin/math/math.js', async: true }
+
 				]
-			});
-		</script>
-	</body>
+		});
+	</script>
+</body>
+
 </html>
