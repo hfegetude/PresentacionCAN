@@ -27,6 +27,7 @@
 <body>
 	<div class="reveal">
 		<div class="slides">
+
 			<section data-background-image="images/intro_temp.jpg">
 				<p style="text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;">
 					<font size="16"> Introducción al analisis temporal en CAN </font>
@@ -81,16 +82,38 @@
 				<p>
 					El tiempo que tarda en eviarse un paquete será el tiempo que tarda en ponerse en cola dicho mensaje más el tiempo de retardo en la cola $w_n$ más el tiempo de envío $C_m$
 				</p>
-				\[    R_m = J_m + w_m + C_m \]
-
+				\[ R_m = J_m + w_m + C_m \]
 			</section>
 			<section data-background-color="#ffffff">
-				En el caso de el dispositivo con la mayor prioridad:
-				\[ w_n = B_m = \max_{k \in lp(m)}(C_k) \]
+				En el caso de el dispositivo con la mayor prioridad: \[ w_n = B_m = \max_{k \in lp(m)}(C_k) \]
 			</section>
 			<section data-background-color="#ffffff">
-				Por lo tanto la ecuación final de Tindell:
-				\[    w_n = B_m +\sum_{\forall k \in hp(m) } \left \lceil{\frac{w_n + J_k + \tau_{bit}}{T_k}}\right \rceil C_K \]
+				Por lo tanto la ecuación final de Tindell: \[ w_n = B_m +\sum_{\forall k \in hp(m) } \left \lceil{\frac{w_n + J_k + \tau_{bit}}{T_k}}\right \rceil C_K \]
+			</section>
+			<section data-background-color="#ffffff">
+				<p> Pero hay un problema.... </p>
+				<p class="fragment"> El modelo asume que $T_m \leq D_m$</p>
+			</section>
+			<section data-background-color="#ffffff">
+				<p> En los ultimos años se propone una nueva solución, con el nuevo tiempo de ocupación como: </p>
+				<p> \[ t_m^{n+1} = B_m + \sum_{k \in hp(m) \cup m} \left \lceil{\frac{t_m^n + J_k }{T_k}}\right \rceil C_K \] </p>
+				<ul class="fragment">
+					<li> $t_m \leq T_m - J_m$: Entonces la ecuación de Tindell nos serviría para calcular el retardo máximo. </li>
+					<li> $t_m > T_m - J_m$: Habría que usar la nueva ecuación. </li>
+				</ul>
+			</section>
+			<section data-background-color="#ffffff">
+				<p>El número de mensajes en cola : \begin{equation} Q_m = \left \lceil{\frac{t_m + J_k }{T_k}}\right \rceil \end{equation}
+				</p>
+				<p class="fragment">
+					Tiempo de respuesta dependiendo de $Q$ \begin{equation} w_m^{n+1}(q) = B_m + qC_m + \sum_{k \in hp(m)} \left \lceil \frac{w_n^m + J_k + \tau_{bit}}{T_k} \right \rceil C_k \end{equation}
+				</p>
+				<p class="fragment">
+					Su tiempo de respuesta $R_m$ es: \begin{equation} R_m(q) = J_m + w_m(q) -qT_m + C_m \end{equation}
+				</p>
+			</section>
+			<section data-background-color="#ffffff" >
+				<h1> FIN </h1>
 			</section>
 		</div>
 	</div>
@@ -102,7 +125,7 @@
 		// More info https://github.com/hakimel/reveal.js#configuration
 		Reveal.initialize({
 			history: true,
-
+			slideNumber: true, 
 			// More info https://github.com/hakimel/reveal.js#dependencies
 			dependencies: [{
 					src: 'plugin/markdown/marked.js'
