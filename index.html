@@ -30,9 +30,101 @@
 
 			<section data-background-image="images/intro_temp.jpg">
 				<p style="text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;">
+					<font size="16"> Protocolo CAN y su análisis temporal</font>
+				</p>
+			</section>
+
+			<section data-background-image="images/intro_temp.jpg">
+				<p style="text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;">
+					<font size="16"> Introducción</font>
+					<ul>
+						<li>Creado en 1983 por BOSCH</li>
+						<li>Protocolo multimaster con arquitectura en bus</li>
+						<li>Sencillo, barato y con resistencia a las interferencias electromagnéticas</li>
+					</ul>
+				</p>
+			</section>
+
+			<section data-background-image="images/intro_temp.jpg">
+				<p style="text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;">
+					<font size="16"> El estándar CAN</font>
+				</p>
+			</section>
+
+			<section data-background-image="images/intro_temp.jpg">
+				<p style="text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;">
+					<font size="16"> Capa física</font>
+					<ul>
+						<li>Separación máxima entre nodos - Sincronismo</li>
+						<li>Bit stuffing</li>
+						<li>Elementos recesivos (1s) y dominantes (0s)</li>
+					</ul>
+				</p>
+			</section>
+
+			<section data-background-image="images/frames.jpg">
+				<p style="text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;">
+
+						<img src="images/logica.png" alt="lines" style="width:608px;height:456px;">
+				</p>
+			</section>
+
+			<section data-background-image="images/frames.jpg">
+				<p style="text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;">
+
+						<img src="images/ej.png" alt="lines" style="width:608px;height:456px;">
+				</p>
+			</section>
+
+			<section data-background-image="images/intro_temp.jpg">
+				<p style="text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;">
+					<font size="16"> Capa de enlace</font>
+					<ul>
+						<li>Acceso al medio: Identificadores</li>
+						<li>Extended CAN</li>
+						<li>Todos participan en la escritura del ACK</li>
+					</ul>
+				</p>
+			</section>
+
+			<section data-background-image="images/frames.jpg">
+				<p style="text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;">
+
+						<img src="images/frames.png" alt="lines" style="width:608px;height:456px;">
+				</p>
+			</section>
+
+
+			<section data-background-image="images/intro_temp.jpg">
+				<p style="text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;">
+					<font size="16"> Corrección de errores</font>
+				</p>
+			</section>
+
+			<section data-background-image="images/intro_temp.jpg">
+				<p style="text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;">
+					<font size="16"> Detección de errores</font>
+					<ul>
+						<li>5 formas de detectarlos: 3 sobre el frame y 2 bit a bit</li>
+						<li>Sobre el frame: ACK, CRC y campos fijos</li>
+						<li>Bit a bit: bit stuffing y W/R </li>
+					</ul>
+				</p>
+			</section>
+
+			<section data-background-image="images/frames.jpg">
+				<p style="text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;">
+
+						<img src="images/diagrama.png" alt="lines" style="width:608px;height:456px;">
+				</p>
+			</section>
+
+			<section data-background-image="images/intro_temp.jpg">
+				<p style="text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;">
 					<font size="16"> Introducción al analisis temporal en CAN </font>
 				</p>
 			</section>
+
 			<section data-background-color="#ffffff">
 				<p style="text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;">
 					<font size="16"> ¿Por qué es importante? </font>
@@ -125,7 +217,7 @@
 		// More info https://github.com/hakimel/reveal.js#configuration
 		Reveal.initialize({
 			history: true,
-			slideNumber: true, 
+			slideNumber: true,
 			// More info https://github.com/hakimel/reveal.js#dependencies
 			dependencies: [{
 					src: 'plugin/markdown/marked.js'
